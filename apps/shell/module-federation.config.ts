@@ -1,5 +1,15 @@
 import { ModuleFederationConfig } from '@nx/module-federation';
 
+type RemoteWithUrl = [remoteName: string, remoteUrl: string];
+const isProd = () => process.env['NODE_ENV'] === 'production';
+
+const getPortfolioRemote = (): string | RemoteWithUrl => {
+  const name = 'portfolio';
+  const url = 'https://portfolio-abcd.web.app/remoteEntry.mjs';
+
+  return isProd() ? ([name, url] as RemoteWithUrl) : name;
+};
+
 const config: ModuleFederationConfig = {
   name: 'shell',
   /**
@@ -14,7 +24,7 @@ const config: ModuleFederationConfig = {
    * declare module 'my-external-remote';
    *
    */
-  remotes: ['portfolio'],
+  remotes: [getPortfolioRemote()],
 };
 
 /**

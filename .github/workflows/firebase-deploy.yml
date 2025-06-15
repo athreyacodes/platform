@@ -1,0 +1,82 @@
+name: Firebase Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  detect-affected:
+    runs-on: ubuntu-latest
+    outputs:
+      shell_changed: ${{ steps.filter.outputs.shell }}
+      portfolio_changed: ${{ steps.filter.outputs.portfolio }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Install Nx
+        run: npm install -g nx
+
+      - name: Detect affected apps
+        id: filter
+        run: |
+          npx nx show projects --affected --base=origin/main --head=HEAD > affected.txt
+          echo "shell=$(grep -q '^shell$' affected.txt && echo true || echo false)" >> $GITHUB_OUTPUT
+          echo "portfolio=$(grep -q '^portfolio$' affected.txt && echo true || echo false)" >> $GITHUB_OUTPUT
+
+  deploy-shell:
+    needs: detect-affected
+    if: needs.detect-affected.outputs.shell_changed == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - run: npm install
+      - run: npm run build -- shell
+
+      - name: Deploy shell
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: "${{ secrets.GITHUB_TOKEN }}"
+          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_SHELL_APP_3D8D6 }}"
+          channelId: live
+          projectId: shell-app-3d8d6
+          target: "shell"
+
+  deploy-portfolio:
+    needs: detect-affected
+    if: needs.detect-affected.outputs.portfolio_changed == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - run: npm install
+      - run: npm run build -- portfolio
+
+      - name: Deploy portfolio
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: "${{ secrets.GITHUB_TOKEN }}"
+          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_PORTFOLIO_230B7 }}"
+          channelId: live
+          projectId: portfolio-230b7
+          target: "portfolio"
