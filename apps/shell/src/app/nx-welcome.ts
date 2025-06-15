@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-nx-welcome',
   imports: [CommonModule],
-  template: ``,
+  template: `SHELL APP 2`,
   styles: [],
   encapsulation: ViewEncapsulation.None,
 })
