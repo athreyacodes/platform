@@ -1,12 +1,10 @@
-name: Firebase Deploy
-
+name: Deploy to Firebase Hosting on merge
 on:
   push:
     branches:
       - main
-
 jobs:
-  deploy-shell:
+  build_and_deploy_shell_app:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -16,19 +14,16 @@ jobs:
         with:
           node-version: 20
 
-      - run: npm install
+      - run: npm ci
       - run: npm run build -- shell
-
-      - name: Deploy shell
-        uses: FirebaseExtended/action-hosting-deploy@v0
+      - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
-          repoToken: "${{ secrets.GITHUB_TOKEN }}"
-          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_SHELL_APP_3D8D6 }}"
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_SHELL_APP_3D8D6 }}
           channelId: live
           projectId: shell-app-3d8d6
           target: "shell"
-
-  deploy-portfolio:
+  build_and_deploy_portfolio:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -38,14 +33,12 @@ jobs:
         with:
           node-version: 20
 
-      - run: npm install
+      - run: npm ci
       - run: npm run build -- portfolio
-
-      - name: Deploy portfolio
-        uses: FirebaseExtended/action-hosting-deploy@v0
+      - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
-          repoToken: "${{ secrets.GITHUB_TOKEN }}"
-          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_PORTFOLIO_230B7 }}"
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_PORTFOLIO_230B7 }}
           channelId: live
           projectId: portfolio-230b7
           target: "portfolio"
