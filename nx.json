@@ -28,7 +28,13 @@
     "@nx/angular:webpack-browser": {
       "cache": true,
       "dependsOn": ["^build"],
-      "inputs": ["production", "^production"]
+      "inputs": [
+        "production",
+        "^production",
+        {
+          "env": "NX_MF_DEV_REMOTES"
+        }
+      ]
     }
   },
   "generators": {
