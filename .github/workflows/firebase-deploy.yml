@@ -6,47 +6,7 @@ on:
       - main
 
 jobs:
-  detect-affected:
-    runs-on: ubuntu-latest
-    outputs:
-      shell_changed: ${{ steps.filter.outputs.shell }}
-      portfolio_changed: ${{ steps.filter.outputs.portfolio }}
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Install Nx
-        run: npm install -g nx
-
-      - name: Detect affected apps
-        id: filter
-        run: |
-          AFFECTED=$(npx nx show projects --affected --base=origin/main --head=HEAD)
-          echo "Affected projects: $AFFECTED"
-
-          if echo "$AFFECTED" | grep -q '^shell$'; then
-            echo "shell_changed=true" >> $GITHUB_OUTPUT
-          else
-            echo "shell_changed=false" >> $GITHUB_OUTPUT
-          fi
-
-          if echo "$AFFECTED" | grep -q '^portfolio$'; then
-            echo "portfolio_changed=true" >> $GITHUB_OUTPUT
-          else
-            echo "portfolio_changed=false" >> $GITHUB_OUTPUT
-          fi
-
   deploy-shell:
-    needs: detect-affected
-    if: needs.detect-affected.outputs.shell_changed == 'true'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -69,8 +29,6 @@ jobs:
           target: "shell"
 
   deploy-portfolio:
-    needs: detect-affected
-    if: needs.detect-affected.outputs.portfolio_changed == 'true'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
