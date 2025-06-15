@@ -17,7 +17,7 @@ jobs:
           node-version: 20
 
       - run: npm install
-      - run: npm run build-shell
+      - run: npm run build -- shell
 
       - name: Deploy shell
         uses: FirebaseExtended/action-hosting-deploy@v0
@@ -39,7 +39,7 @@ jobs:
           node-version: 20
 
       - run: npm install
-      - run: npm run build-portfolio
+      - run: npm run build -- portfolio
 
       - name: Deploy portfolio
         uses: FirebaseExtended/action-hosting-deploy@v0
