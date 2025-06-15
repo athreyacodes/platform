@@ -29,9 +29,20 @@ jobs:
       - name: Detect affected apps
         id: filter
         run: |
-          npx nx show projects --affected --base=origin/main --head=HEAD > affected.txt
-          echo "shell=$(grep -q '^shell$' affected.txt && echo true || echo false)" >> $GITHUB_OUTPUT
-          echo "portfolio=$(grep -q '^portfolio$' affected.txt && echo true || echo false)" >> $GITHUB_OUTPUT
+          AFFECTED=$(npx nx show projects --affected --base=origin/main --head=HEAD)
+          echo "Affected projects: $AFFECTED"
+
+          if echo "$AFFECTED" | grep -q '^shell$'; then
+            echo "shell_changed=true" >> $GITHUB_OUTPUT
+          else
+            echo "shell_changed=false" >> $GITHUB_OUTPUT
+          fi
+
+          if echo "$AFFECTED" | grep -q '^portfolio$'; then
+            echo "portfolio_changed=true" >> $GITHUB_OUTPUT
+          else
+            echo "portfolio_changed=false" >> $GITHUB_OUTPUT
+          fi
 
   deploy-shell:
     needs: detect-affected
