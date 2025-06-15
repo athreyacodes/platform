@@ -27,25 +27,3 @@ jobs:
           channelId: live
           projectId: shell-app-3d8d6
           target: "shell"
-
-  deploy-portfolio:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-
-      - run: npm install
-      - run: npm run build -- portfolio
-
-      - name: Deploy portfolio
-        uses: FirebaseExtended/action-hosting-deploy@v0
-        with:
-          repoToken: "${{ secrets.GITHUB_TOKEN }}"
-          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_PORTFOLIO_230B7 }}"
-          channelId: live
-          projectId: portfolio-230b7
-          target: "portfolio"
