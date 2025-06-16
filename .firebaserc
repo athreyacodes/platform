@@ -1,5 +1,15 @@
 {
   "projects": {
     "shell": "shell-app-3d8d6"
-  }
+  },
+  "targets": {
+    "shell-app-3d8d6": {
+      "hosting": {
+        "shell": [
+          "shell-app-3d8d6"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }
