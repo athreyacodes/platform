@@ -15,6 +15,12 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Fetch base branch for Nx
+        run: git fetch origin main:refs/remotes/origin/main
+
+      - name: Log Git Diff
+        run: git diff --name-only origin/main HEAD
+
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
