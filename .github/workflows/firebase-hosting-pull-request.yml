@@ -13,6 +13,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Node
         uses: actions/setup-node@v4
@@ -28,7 +30,9 @@ jobs:
       - name: Get affected apps
         id: affected
         run: |
-          echo "apps=$(npx nx show projects --affected --type=app --base=origin/main --head=HEAD | paste -sd "," -)" >> "$GITHUB_OUTPUT"
+          apps=$(npx nx show projects --affected --type=app --base=origin/main --head=HEAD | paste -sd "," -)
+          echo "apps=$apps"
+          echo "apps=$apps" >> "$GITHUB_OUTPUT"
 
       - name: Build shell
         if: contains(steps.affected.outputs.apps, 'shell')
