@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-nx-welcome',
   imports: [CommonModule, RouterModule],
-  template: `<a [routerLink]="'/portfolio'" style="margin: 50px">Portfolio</a>`,
+  template: `<a [routerLink]="'/portfolio'" style="margin: 50px">Portfolio route</a>`,
   styles: [],
   encapsulation: ViewEncapsulation.None,
 })
