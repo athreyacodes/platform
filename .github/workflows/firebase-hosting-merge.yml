@@ -19,7 +19,7 @@ jobs:
           node-version: 20
 
       - name: Install dependencies
-        run: npm ci
+        run: npm i
 
       - name: Install Nx CLI
         run: npm install -g nx
