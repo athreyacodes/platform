@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-nx-welcome',
   imports: [CommonModule],
-  template: `Portfolio Remote Entry Component - Nx Microfrontend Example`,
+  template: `Portfolio Remote Entry Component - Nx Microfrontend Example - Thank you`,
   styles: [],
   encapsulation: ViewEncapsulation.None,
 })
