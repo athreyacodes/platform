@@ -13,9 +13,47 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: npm i && npm run build -- shell
-      - uses: FirebaseExtended/action-hosting-deploy@v0
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Nx CLI
+        run: npm install -g nx
+
+      - name: Get affected apps
+        id: affected
+        run: |
+          echo "apps=$(npx nx show projects --affected --type=app --base=origin/main --head=HEAD | paste -sd "," -)" >> "$GITHUB_OUTPUT"
+
+      - name: Build shell
+        if: contains(steps.affected.outputs.apps, 'shell')
+        run: npm run build -- shell
+
+      - name: Deploy shell
+        if: contains(steps.affected.outputs.apps, 'shell')
+        uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_SHELL_APP_3D8D6 }}
+          channelId: live
           projectId: shell-app-3d8d6
+          target: shell
+
+      - name: Build portfolio
+        if: contains(steps.affected.outputs.apps, 'portfolio')
+        run: npm run build -- portfolio
+
+      - name: Deploy portfolio
+        if: contains(steps.affected.outputs.apps, 'portfolio')
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_PORTFOLIO_230B7 }}
+          channelId: live
+          projectId: portfolio-230b7
+          target: portfolio
