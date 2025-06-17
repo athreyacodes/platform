@@ -10,6 +10,17 @@
           "destination": "/index.html"
         }
       ]
+    },
+    {
+      "public": "dist/apps/portfolio",
+      "target": "portfolio",
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
     }
   ]
 }
