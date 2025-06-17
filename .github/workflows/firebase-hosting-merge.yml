@@ -12,14 +12,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Fetch base branch for Nx
-        run: git fetch origin main:refs/remotes/origin/main
-
-      - name: Log Git Diff
-        run: git diff --name-only origin/main HEAD
 
       - name: Set up Node
         uses: actions/setup-node@v4
@@ -29,22 +21,10 @@ jobs:
       - name: Install dependencies
         run: npm i
 
-      - name: Install Nx CLI
-        run: npm install -g nx
-
-      - name: Get affected apps
-        id: affected
-        run: |
-          apps=$(npx nx show projects --affected --type=app --base=origin/main --head=HEAD | paste -sd "," -)
-          echo "apps=$apps"
-          echo "apps=$apps" >> "$GITHUB_OUTPUT"
-
       - name: Build shell
-        if: contains(steps.affected.outputs.apps, 'shell')
         run: npm run build -- shell
 
       - name: Deploy shell
-        if: contains(steps.affected.outputs.apps, 'shell')
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
@@ -54,11 +34,9 @@ jobs:
           target: shell
 
       - name: Build portfolio
-        if: contains(steps.affected.outputs.apps, 'portfolio')
         run: npm run build -- portfolio
 
       - name: Deploy portfolio
-        if: contains(steps.affected.outputs.apps, 'portfolio')
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
