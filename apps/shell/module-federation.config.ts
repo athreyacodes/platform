@@ -1,14 +1,14 @@
 import { ModuleFederationConfig } from '@nx/module-federation';
 
-type RemoteWithUrl = [remoteName: string, remoteUrl: string];
-const isProd = () => process.env['NX_TASK_TARGET_CONFIGURATION'] === 'production';
+// type RemoteWithUrl = [remoteName: string, remoteUrl: string];
+// const isProd = () => process.env['NX_TASK_TARGET_CONFIGURATION'] === 'production';
 
-const getPortfolioRemote = (): string | RemoteWithUrl => {
-  const name = 'portfolio';
-  const url = 'https://portfolio-230b7.web.app/remoteEntry.mjs';
+// const getPortfolioRemote = (): string | RemoteWithUrl => {
+//   const name = 'portfolio';
+//   const url = 'https://portfolio-230b7.web.app/remoteEntry.mjs';
   
-  return isProd() ? ([name, url] as RemoteWithUrl) : name;
-};
+//   return isProd() ? ([name, url] as RemoteWithUrl) : name;
+// };
 
 const config: ModuleFederationConfig = {
   name: 'shell',
