@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "concurrently \"nx run shell:serve\" \"nx run portfolio:serve\"",
-    "build": "npx nx build"
+    "start": "concurrently \"npx nx run shell:serve\" \"npx nx run portfolio:serve\"",
+    "build": "npx nx run shell:build"
   },
   "private": true,
   "dependencies": {

@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@platform/base-header": ["libs/base-header/src/index.ts"],
+      "@platform/style-guide": ["libs/style-guide/src/lib/index.scss"],
       "@platform/ui-components": ["libs/ui-components/src/index.ts"],
       "portfolio/Routes": [
         "apps/portfolio/src/app/remote-entry/entry.routes.ts"

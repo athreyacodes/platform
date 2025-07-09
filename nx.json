@@ -42,14 +42,17 @@
       "e2eTestRunner": "none",
       "linter": "eslint",
       "style": "scss",
-      "unitTestRunner": "none"
+      "unitTestRunner": "none",
+      "skipTests": true
     },
     "@nx/angular:library": {
       "linter": "eslint",
-      "unitTestRunner": "none"
+      "unitTestRunner": "none",
+      "skipTests": true
     },
     "@nx/angular:component": {
-      "style": "scss"
+      "style": "scss",
+      "skipTests": true
     }
   }
 }

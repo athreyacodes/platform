@@ -1,1 +1,1 @@
-export * from './lib/ui-components/ui-components';
+export * from './lib/components/full-page-banner/full-page-banner';

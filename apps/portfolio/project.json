@@ -23,6 +23,9 @@
           }
         ],
         "styles": ["apps/portfolio/src/styles.scss"],
+        "stylePreprocessorOptions": {
+          "includePaths": ["libs/style-guide/src/lib"]
+        },
         "customWebpackConfig": {
           "path": "apps/portfolio/webpack.config.ts"
         }

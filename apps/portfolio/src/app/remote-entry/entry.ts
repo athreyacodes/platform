@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NxWelcome } from './nx-welcome';
+import { RouterModule } from '@angular/router';
+import { FullPageBanner } from '@platform/ui-components';
 
 @Component({
-  imports: [CommonModule, NxWelcome],
+  imports: [CommonModule, RouterModule, FullPageBanner],
   selector: 'app-portfolio-entry',
-  template: `<app-nx-welcome></app-nx-welcome>`,
+  template: `<ui-full-page-banner [header]="'Coming Soon...'" />`,
 })
 export class RemoteEntry {}
