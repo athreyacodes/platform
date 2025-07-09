@@ -22,8 +22,8 @@ section .wave {
 section .wave span {
   content: '';
   position: absolute;
-  width: 300vh;
-  height: 300vh;
+  width: 275vh;
+  height: 275vh;
   top: 0;
   left: 50%;
   transform: translate(-50%, -75%);
@@ -32,7 +32,7 @@ section .wave span {
 .content {
   position: relative;
   z-index: 1;
-  font-size: 4em;
+  font-size: 2em;
   margin-bottom: 3em;
   letter-spacing: 2px;
   color: $primary-color;
