@@ -53,13 +53,5 @@
       "style": "scss",
       "skipTests": true
     }
-  },
-  "tasksRunnerOptions": {
-    "default": {
-      "runner": "@nx/devkit/tasks-runners/default",
-      "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"]
-      }
-    }
   }
 }
