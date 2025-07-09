@@ -8,6 +8,9 @@
       "hosting": {
         "shell": [
           "shell-app-3d8d6"
+        ],
+        "portfolio": [
+          "portfolio-230b7"
         ]
       }
     },

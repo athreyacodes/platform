@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "npx nx start",
+    "start": "concurrently \"nx run shell:serve\" \"nx run portfolio:serve\"",
     "build": "npx nx build"
   },
   "private": true,
@@ -41,6 +41,7 @@
     "@swc/helpers": "~0.5.11",
     "@typescript-eslint/utils": "^8.29.0",
     "angular-eslint": "^20.0.0",
+    "concurrently": "^9.2.0",
     "eslint": "^9.8.0",
     "eslint-config-prettier": "^10.0.0",
     "nx": "21.2.0",
