@@ -19,7 +19,7 @@ jobs:
           node-version: 20
 
       - name: Install dependencies
-        run: npm i
+        run: timeout 300 npm ci --no-audit --no-fund --verbose
 
       - name: Build
         run: npm run build
