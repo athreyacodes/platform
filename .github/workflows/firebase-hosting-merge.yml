@@ -33,12 +33,12 @@ jobs:
           projectId: shell-app-3d8d6
           target: shell
 
-      # - name: Deploy portfolio
-      #   uses: FirebaseExtended/action-hosting-deploy@v0
-      #   with:
-      #     repoToken: ${{ secrets.GITHUB_TOKEN }}
-      #     firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_PORTFOLIO_230B7 }}
-      #     channelId: live
-      #     projectId: portfolio-230b7
-      #     target: portfolio
+      - name: Deploy portfolio
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_PORTFOLIO_230B7 }}
+          channelId: live
+          projectId: portfolio-230b7
+          target: portfolio
 
