@@ -22,17 +22,18 @@ section .wave {
 section .wave span {
   content: '';
   position: absolute;
-  width: 325vh;
-  height: 325vh;
+  width: 300vh;
+  height: 300vh;
   top: 0;
   left: 50%;
   transform: translate(-50%, -75%);
-  background: $secondary-color;
+  background: $background-color;
 }
 .content {
   position: relative;
   z-index: 1;
   font-size: 4em;
+  margin-bottom: 3em;
   letter-spacing: 2px;
   color: $primary-color;
 }
@@ -44,12 +45,14 @@ section .wave span:nth-child(1) {
 
 section .wave span:nth-child(2) {
   border-radius: 40%;
-  background: rgba(255, 255, 255, 0.5);
+  background: radial-gradient(circle, $background-light 0%, $background-color 100%);
+  box-shadow: inset 0 0 0 1000px $background-overlay;
   animation: animate 20s linear infinite;
 }
 section .wave span:nth-child(3) {
   border-radius: 42.5%;
-  background: rgba(255, 255, 255, 0.5);
+  background: radial-gradient(circle, $background-light 0%, $background-color 100%);
+  box-shadow: inset 0 0 0 1000px $background-overlay;
   animation: animate 30s linear infinite;
 }
 @keyframes animate {
