@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "start": "concurrently \"npx nx run shell:serve\" \"npx nx run portfolio:serve\"",
-    "build": "npx nx run shell:build && npx nx run portfolio:build"
+    "build": "timeout 240 npx nx run shell:build --verbose && timeout 240 npx nx run portfolio:build --verbose"
   },
   "private": true,
   "dependencies": {
