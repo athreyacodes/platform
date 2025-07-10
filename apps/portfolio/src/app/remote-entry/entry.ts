@@ -1,11 +1,15 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { FullPageBanner } from '@platform/ui-components';
+import { Home } from '../components/home/home';
 
 @Component({
-  imports: [CommonModule, RouterModule, FullPageBanner],
+  imports: [
+    CommonModule,
+    RouterModule,
+    Home,
+  ],
   selector: 'app-portfolio-entry',
-  template: `<ui-full-page-banner [header]="'Coming Soon...'" />`,
+  template: `<app-home />`,
 })
 export class RemoteEntry {}

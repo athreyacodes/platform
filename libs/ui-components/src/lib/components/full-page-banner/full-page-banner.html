@@ -1,10 +1,13 @@
 <section>
-  <div class="wave">
+  <div class="wave" [class.blur]="blur">
     <span></span>
     <span></span>
     <span></span>
   </div>
   <div class="content">
-    <span>Coming soon...</span>
+    <ng-content></ng-content>
   </div>
 </section>
+
+      <!-- <button matButton="filled">Basic</button>
+      <mat-checkbox class="example-margin">Check me!</mat-checkbox> -->

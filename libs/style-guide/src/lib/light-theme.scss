@@ -1,0 +1,15 @@
+// @use '@angular/material' as mat;
+// @use './palettes' as palettes;
+
+// $light-theme: mat.define-theme((
+//   color: (
+//     theme-type: light,
+//     primary: palettes.$sg-primary-palette,
+//     accent: palettes.$sg-accent-palette,
+//     warn: palettes.$sg-warn-palette,
+//   ),
+//   // Optional: Add typography and density settings
+// ));
+
+// @include mat.core();
+// @include mat.all-component-themes($light-theme);

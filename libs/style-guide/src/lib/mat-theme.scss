@@ -1,0 +1,7 @@
+@use '@angular/material' as mat;
+
+html {
+    @include mat.theme((
+        color: mat.$cyan-palette
+    ));
+}
