@@ -17,10 +17,10 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
 
       - name: Install dependencies
-        run: timeout 300 npm ci --no-audit --no-fund --ignore-scripts
+        run: npm run install
 
       - name: Build
         run: npm run build

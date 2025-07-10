@@ -3,8 +3,11 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
+    "install": "timeout 300 npm ci --no-audit --no-fund",
     "start": "concurrently \"npx nx run shell:serve\" \"npx nx run portfolio:serve\"",
-    "build": "npx nx run shell:build --skip-nx-cache --verbose && npx nx run portfolio:build --skip-nx-cache --verbose"
+    "build": "npm run build-shell && npm run build-portfolio",
+    "build-shell": "timeout 300 npx nx run shell:build",
+    "build-portfolio": "timeout 300 npx nx run portfolio:build"
   },
   "private": true,
   "dependencies": {
