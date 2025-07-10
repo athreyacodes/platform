@@ -5,8 +5,8 @@
   "scripts": {
     "start": "concurrently \"npx nx run shell:serve\" \"npx nx run portfolio:serve\"",
     "build": "npm run build-shell && npm run build-portfolio",
-    "build-shell": "timeout 300 npx nx run shell:build",
-    "build-portfolio": "timeout 300 npx nx run portfolio:build"
+    "build-shell": "timeout 300 npx nx run shell:build:production",
+    "build-portfolio": "timeout 300 npx nx run portfolio:build:production"
   },
   "private": true,
   "dependencies": {
@@ -16,6 +16,7 @@
     "@angular/forms": "~20.0.0",
     "@angular/platform-browser": "~20.0.0",
     "@angular/router": "~20.0.0",
+    "@angular/animations": "~20.0.0",
     "@nx/angular": "21.2.0",
     "rxjs": "~7.8.0",
     "zone.js": "~0.15.0"

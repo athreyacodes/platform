@@ -1,4 +1,4 @@
-@import 'style-guide';
+@use 'style-guide' as *;
 
 section {
     color: $primary-color;
