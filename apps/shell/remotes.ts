@@ -11,5 +11,5 @@ const remotesProduction: RemoteWithUrl[] = Object.keys(remotes).map(
 
 export const getRemoteList = () =>
   process.env['NX_TASK_TARGET_CONFIGURATION'] === 'production'
-    ? remotesDevelopment
-    : remotesProduction;
+    ? remotesProduction
+    : remotesDevelopment;
