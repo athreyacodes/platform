@@ -22,7 +22,7 @@ jobs:
         run: timeout 300 npm ci --no-audit --no-fund
 
       - name: Build
-        run: npm run build
+        run: npm run build-action
 
       - name: Deploy shell
         uses: FirebaseExtended/action-hosting-deploy@v0

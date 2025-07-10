@@ -5,8 +5,11 @@
   "scripts": {
     "start": "concurrently \"npx nx run shell:serve\" \"npx nx run portfolio:serve\"",
     "build": "npm run build-shell && npm run build-portfolio",
-    "build-shell": "timeout 300 npx nx run shell:build:production",
-    "build-portfolio": "timeout 300 npx nx run portfolio:build:production"
+    "build-action": "npm run build-shell-action && npm run build-portfolio-action",
+    "build-shell": "npx nx run shell:build:production",
+    "build-portfolio": "npx nx run portfolio:build:production",
+    "build-shell-action": "timeout 300 npx nx run shell:build:production",
+    "build-portfolio-action": "timeout 300 npx nx run portfolio:build:production"
   },
   "private": true,
   "dependencies": {
