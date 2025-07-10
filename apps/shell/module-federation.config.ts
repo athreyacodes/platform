@@ -1,6 +1,8 @@
 import { ModuleFederationConfig } from '@nx/module-federation';
 import { environment } from './src/environments/environment';
 
+console.log('Module Federation configuration for shell:', environment.remotes);
+
 const config: ModuleFederationConfig = {
   name: 'shell',
   remotes: environment.remotes,
