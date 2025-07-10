@@ -19,7 +19,7 @@ jobs:
           node-version: 22
 
       - name: Install dependencies
-        run: npm run install
+        run: timeout 300 npm ci --no-audit --no-fund
 
       - name: Build
         run: npm run build
