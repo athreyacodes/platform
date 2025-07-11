@@ -19,18 +19,7 @@ export class Home implements OnInit {
   subtitle = signal<boolean | undefined>(undefined);
 
   ngOnInit() {
-    if (document.hasFocus()) {
-      this.greet();
-    } else {
-      window.addEventListener('focus', this.onFocus);
-    }
-  }
-
-  onFocus = () => {
-    if (!this.greetingCompleted) {
-      this.greet();
-      window.removeEventListener('focus', this.greet);
-    }
+    this.greet();
   }
 
   greet() {
@@ -41,6 +30,6 @@ export class Home implements OnInit {
     setTimeout(() => this.prefix.set(true), 3600);
     setTimeout(() => this.name.set(true), 4600);
     setTimeout(() => this.subtitle.set(true), 8000);
-    setTimeout(() => this.blur.set(true), 10000);
+    // setTimeout(() => this.blur.set(true), 10000);
   }
 }
