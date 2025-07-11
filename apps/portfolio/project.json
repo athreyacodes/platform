@@ -20,7 +20,8 @@
           {
             "glob": "**/*",
             "input": "apps/portfolio/public"
-          }
+          },
+          "apps/portfolio/src/assets"
         ],
         "styles": ["apps/portfolio/src/styles.scss"],
         "stylePreprocessorOptions": {

@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, OnInit, signal, WritableSignal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -7,9 +7,10 @@ import { CommonModule } from '@angular/common';
   templateUrl: './greeting.html',
   styleUrl: './greeting.scss',
 })
-export class Greeting {
+export class Greeting implements OnInit {
   greetingCompleted = false;
 
+  showNewMessage = signal<boolean>(false);
   blur = signal<boolean>(false);
   greeting = signal<boolean | undefined>(undefined);
   title = signal<boolean | undefined>(undefined);
@@ -17,18 +18,25 @@ export class Greeting {
   name = signal<boolean | undefined>(undefined);
   subtitle = signal<boolean | undefined>(undefined);
 
+  imageURL = 'assets/images/photos/dp.jpg';
+  imageSize = signal<number>(50);
+
   ngOnInit() {
+    this.show(this.showNewMessage, true, 1000);
     this.greet();
   }
 
   greet() {
-    setTimeout(() => this.greeting.set(true), 500);
-    setTimeout(() => this.greeting.set(false), 2500);
-    setTimeout(() => this.greeting.set(undefined), 3500);
-    setTimeout(() => this.title.set(true), 3600);
-    setTimeout(() => this.prefix.set(true), 3600);
-    setTimeout(() => this.name.set(true), 4600);
-    setTimeout(() => this.subtitle.set(true), 8000);
-    // setTimeout(() => this.blur.set(true), 10000);
+    // this.show(this.greeting, true, 500);
+    // this.show(this.greeting, false, 2500);
+    // this.show(this.greeting, undefined, 3500);
+    // this.show(this.title, true, 3600);
+    // this.show(this.prefix, true, 3600);
+    // this.show(this.name, true, 4600);
+    // this.show(this.subtitle, true, 8000);
+  }
+
+  show(signal: WritableSignal<boolean | undefined>, value: boolean | undefined, time: number) {
+    setTimeout(() => signal.set(value), time);
   }
 }

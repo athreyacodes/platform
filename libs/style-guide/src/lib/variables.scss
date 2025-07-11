@@ -1,18 +1,62 @@
 // _variables.scss
-$primary-color: #008080;
-$primary-color-opacity: rgba(0, 128, 128, 0.5);
-$secondary-color: #dac0a6;
-$tertiary-color: #5b4a52;
-$dark-color: #273e47;
+// $primary-color: #008080;
+// $primary-color-opacity: rgba(0, 128, 128, 0.5);
+// $secondary-color: #dac0a6;
+// $tertiary-color: #5b4a52;
+// $dark-color: #273e47;
 
-$background-color: #EEEEEE;
-$background-light: #00808033;
-$background-overlay: transparent;
-// $border-radius: 8px;
+// $background-color: #EEEEEE;
+// $background-light: #00808033;
+// $background-overlay: transparent;
 
-// _typography.scss
-// $font-base: 'Inter', sans-serif;
-// $font-size-base: 16px;
+:root, body.theme-light {
+  --primary-color: #008080;
+  --content-on-primary: #EEEEEE;
 
-// _spacing.scss
-// $spacing-unit: 8px;
+  --accent-color: #EEEEEE;
+  --content-on-accent: #008080;
+
+  --primary-translucent: #00808033;
+  --accent-translucent: #EEEEEE33;
+
+  --background-color: #EEEEEE;
+  --background-light: #00808033;
+  --background-overlay: transparent;
+
+  --primary-card: #008080;
+  --translucent-card: #00808033;
+}
+
+body.theme-dark {
+  --primary-color: #0d3a3c;
+  --content-on-primary: #d2dfdf;
+
+  --accent-color: #d2dfdf;
+  --content-on-accent: #0d3a3c;
+
+  --primary-translucent: #0d3a3c33;
+  --accent-translucent: #d2dfdf33;
+
+  --background-color: #121212;
+  --background-light: #151a1a;
+  --background-overlay: transparent;
+
+  --primary-card: #0d3a3c;
+  --translucent-card: #0d3a3c30;
+}
+
+$primary-color: var(--primary-color);
+$content-on-primary: var(--content-on-primary);
+$accent-color: var(--accent-color);
+$content-on-accent: var(--content-on-accent);
+$primary-translucent: var(--primary-translucent);
+$accent-translucent: var(--accent-translucent);
+
+$background-color: var(--background-color);
+$background-light: var(--background-light);
+$background-overlay: var(--background-overlay);
+
+$primary-card: var(--primary-card);
+$translucent-card: var(--translucent-card);
+
+// $full-height: var(--vh)

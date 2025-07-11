@@ -1,5 +1,11 @@
 <section>
     <div class="container">
+        <!-- @if (showNewMessage()) {
+            <img [src]="imageURL" class="box-shadow-high" alt="New Message" [width]="imageSize()" [height]="imageSize()">
+
+        } -->
+
+
         @if(greeting() !== undefined) {
         <div class="greeting" [class.show]="greeting()" [class.hide]="greeting() === false">
             Hello!
