@@ -1,22 +1,3 @@
-<ui-full-page-banner [blur]="blur()">
-    <section>
-        <div class="container">
-            @if(greeting() !== undefined) {
-            <div class="greeting" [class.show]="greeting()" [class.hide]="greeting() === false">
-                Hello!
-            </div>
-            } @if(title() !== undefined) {
-            <div class="title">
-                <div class="prefix" [class.show]="prefix()" [class.hide]="prefix() === false">I'm
-                </div>
-
-                <div class="name" [class.show]="name()" [class.hide]="name() === false">Athreya</div>
-            </div>
-            <div class="subtitle" [class.show]="subtitle()" [class.hide]="subtitle() === false">
-                I am a web developer
-            </div>
-            }
-        </div>
-
-    </section>
+<ui-full-page-banner>
+    <app-greeting></app-greeting>
 </ui-full-page-banner>
