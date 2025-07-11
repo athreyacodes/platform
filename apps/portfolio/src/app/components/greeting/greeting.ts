@@ -22,18 +22,17 @@ export class Greeting implements OnInit {
   imageSize = signal<number>(50);
 
   ngOnInit() {
-    this.show(this.showNewMessage, true, 1000);
     this.greet();
   }
 
   greet() {
-    // this.show(this.greeting, true, 500);
-    // this.show(this.greeting, false, 2500);
-    // this.show(this.greeting, undefined, 3500);
-    // this.show(this.title, true, 3600);
-    // this.show(this.prefix, true, 3600);
-    // this.show(this.name, true, 4600);
-    // this.show(this.subtitle, true, 8000);
+    this.show(this.greeting, true, 500);
+    this.show(this.greeting, false, 2500);
+    this.show(this.greeting, undefined, 3500);
+    this.show(this.title, true, 3600);
+    this.show(this.prefix, true, 3600);
+    this.show(this.name, true, 4100);
+    this.show(this.subtitle, true, 6000);
   }
 
   show(signal: WritableSignal<boolean | undefined>, value: boolean | undefined, time: number) {
