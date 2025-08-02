@@ -65,6 +65,11 @@
   color: $content-on-accent;
 }
 
+.primary-fill {
+  background-color: $primary-color;
+  color: $content-on-primary;
+}
+
 @mixin full-height() {
   height: calc(var(--vh, 1vh) * 100);
 }

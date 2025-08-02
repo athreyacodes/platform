@@ -5,3 +5,7 @@ html {
         color: mat.$cyan-palette
     ));
 }
+
+body.dark-mode {
+  color-scheme: dark;
+}

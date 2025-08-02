@@ -1,0 +1,28 @@
+@import './variables.scss';
+@import './utility.scss';
+
+.button {
+    height: 40px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.button:active {
+    transform: scale(0.95);
+}
+
+.primary-button {
+    @extend .button;
+    @extend .primary-fill;
+}
+
+.message-right {
+    border-radius: 12px 12px 0 12px;
+}
+
+.message-left {
+    border-radius: 12px 12px 12px 0;
+}

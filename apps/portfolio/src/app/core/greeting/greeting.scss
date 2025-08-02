@@ -39,18 +39,22 @@ section {
 .name {
   font-weight: 700;
 }
+.proceed {
+  opacity: 0;
+  margin-top: 2em;
+}
 
 .greeting.show,
 .prefix.show,
 .name.show,
-.subtitle.show {
+.subtitle.show,
+.proceed.show {
   animation: fadeIn 1s ease-in-out forwards;
 }
 .greeting.hide,
 .name.hide,
-.subtitle.hide {
-  animation: fadeOut 1s ease-in-out forwards;
-}
+.subtitle.hide,
+.proceed.hide,
 .prefix.hide {
   animation: fadeOut 1s ease-in-out forwards;
 }
