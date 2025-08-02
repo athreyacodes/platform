@@ -1,9 +1,20 @@
 import { ModuleFederationConfig } from '@nx/module-federation';
-import { getRemoteList } from './remotes';
+
+export type RemoteWithUrl = [remoteName: string, remoteUrl: string];
+
+const remotesDevelopment: RemoteWithUrl[] = [
+  ['portfolio', 'http://localhost:4201/remoteEntry.mjs'],
+];
+const remotesProduction: RemoteWithUrl[] = [
+  ['portfolio', 'https://portfolio-230b7.web.app/remoteEntry.mjs'],
+];
+
 
 const config: ModuleFederationConfig = {
   name: 'shell',
-  remotes: getRemoteList(),
+  remotes: process.env['NX_TASK_TARGET_CONFIGURATION'] === 'production'
+    ? remotesProduction
+    : remotesDevelopment,
 };
 
 /**

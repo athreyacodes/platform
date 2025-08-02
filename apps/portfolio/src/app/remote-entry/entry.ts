@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { Home } from '../components/home/home';
+import { Home } from '../core/home/home';
 
 @Component({
   imports: [
