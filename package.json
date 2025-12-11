@@ -1,60 +1,44 @@
 {
-  "name": "@platform/source",
+  "name": "platform",
   "version": "0.0.0",
-  "license": "MIT",
   "scripts": {
-    "start": "concurrently \"npx nx run shell:serve\" \"npx nx run portfolio:serve\"",
-    "build": "npm run build-shell && npm run build-portfolio",
-    "build-action": "npm run build-shell-action && npm run build-portfolio-action",
-    "build-shell": "npx nx run shell:build:production --skip-nx-cache",
-    "build-portfolio": "npx nx run portfolio:build:production --skip-nx-cache",
-    "build-shell-action": "timeout 300 npx nx run shell:build:production --skip-nx-cache",
-    "build-portfolio-action": "timeout 300 npx nx run portfolio:build:production --skip-nx-cache"
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test"
+  },
+  "prettier": {
+    "printWidth": 100,
+    "singleQuote": true,
+    "overrides": [
+      {
+        "files": "*.html",
+        "options": {
+          "parser": "angular"
+        }
+      }
+    ]
   },
   "private": true,
+  "packageManager": "npm@10.9.2",
   "dependencies": {
-    "@angular/animations": "~20.0.0",
-    "@angular/cdk": "^20.1.0",
-    "@angular/common": "~20.0.0",
-    "@angular/compiler": "~20.0.0",
-    "@angular/core": "~20.0.0",
-    "@angular/forms": "~20.0.0",
-    "@angular/platform-browser": "~20.0.0",
-    "@angular/router": "~20.0.0",
-    "@nx/angular": "21.2.0",
+    "@angular/common": "^21.0.0",
+    "@angular/compiler": "^21.0.0",
+    "@angular/core": "^21.0.0",
+    "@angular/forms": "^21.0.0",
+    "@angular/platform-browser": "^21.0.0",
+    "@angular/router": "^21.0.0",
+    "layers-ui": "^0.12.0",
     "rxjs": "~7.8.0",
-    "zone.js": "~0.15.0"
+    "tslib": "^2.3.0"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~20.0.0",
-    "@angular-devkit/core": "~20.0.0",
-    "@angular-devkit/schematics": "~20.0.0",
-    "@angular/cli": "~20.0.0",
-    "@angular/compiler-cli": "~20.0.0",
-    "@angular/language-service": "~20.0.0",
-    "@angular/material": "^20.1.0",
-    "@eslint/js": "^9.8.0",
-    "@module-federation/enhanced": "^0.9.0",
-    "@nx/eslint": "21.2.0",
-    "@nx/eslint-plugin": "21.2.0",
-    "@nx/js": "21.2.0",
-    "@nx/module-federation": "21.2.0",
-    "@nx/web": "21.2.0",
-    "@nx/webpack": "21.2.0",
-    "@nx/workspace": "21.2.0",
-    "@schematics/angular": "~20.0.0",
-    "@swc-node/register": "~1.9.1",
-    "@swc/core": "~1.5.7",
-    "@swc/helpers": "~0.5.11",
-    "@typescript-eslint/utils": "^8.29.0",
-    "angular-eslint": "^20.0.0",
-    "concurrently": "^9.2.0",
-    "eslint": "^9.8.0",
-    "eslint-config-prettier": "^10.0.0",
-    "nx": "21.2.0",
-    "prettier": "^2.6.2",
-    "tslib": "^2.3.0",
-    "typescript": "~5.8.2",
-    "typescript-eslint": "^8.29.0"
+    "@angular/build": "^21.0.3",
+    "@angular/cli": "^21.0.3",
+    "@angular/compiler-cli": "^21.0.0",
+    "jsdom": "^27.1.0",
+    "typescript": "~5.9.2",
+    "vitest": "^4.0.8"
   }
 }
