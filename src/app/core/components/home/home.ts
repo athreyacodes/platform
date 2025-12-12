@@ -10,4 +10,7 @@ import { Greeting } from '../greeting/greeting';
 })
 export class Home {
 
+  onGreetingComplete() {
+    window.open('https://profile.athreyacodes.com');
+  }
 }
