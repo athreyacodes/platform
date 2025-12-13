@@ -5,3 +5,13 @@ body {
     padding: 0;
     font-family: var(--font-montserrat);
 }
+
+.primary-message-button {
+    background-color: var(--primary-color);
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px 4px 0 4px;
+    color: var(--secondary-color);
+    box-shadow: var(--shadow-lg);
+    cursor: pointer;
+}
